@@ -1,6 +1,5 @@
 package com.example.demo.services;
 
-
 import com.example.demo.persistence.entities.Proveedor;
 import com.example.demo.persistence.repository.ProveedorRepository;
 
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,7 +21,6 @@ public class ProveedorServiceImpl implements ProveedorService{
     public ArrayList<Proveedor> getAllProveedores(){
         return(ArrayList<Proveedor>) proveedorRepository.findAll();
     }
-
 
     @Override
     @Transactional

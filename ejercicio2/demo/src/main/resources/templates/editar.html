@@ -16,22 +16,22 @@
         th:action="@{/guardarCambios}"
         method="post">
         <label>Código:</label>
-        <input type="text" th:field="*{idProveedor}" readonly="readonly" />
+        <input type="text" th:field="*{idProveedor}" readonly="readonly" required />
 
         <label>Nombre:</label>
-        <input type="text" th:field="*{nombre}" />
+        <input type="text" th:field="*{nombre}" required/>
 
         <label>Teléfono:</label>
-        <input type="text" th:field="*{telefono}" />
+        <input type="text" th:field="*{telefono}" required/>
 
         <label>Dirección:</label>
-        <input type="text" th:field="*{direccion}" />
+        <input type="text" th:field="*{direccion}" required/>
 
         <label>Correo Electrónico:</label>
-        <input type="text" th:field="*{email}" />
+        <input type="text" th:field="*{email}" required/>
 
         <label>Sitio Web:</label>
-        <input type="text" th:field="*{sitioWeb}" />
+        <input type="text" th:field="*{sitioWeb}" required/>
 
         <label>Estado:</label>
         <select th:field="*{estado}">
@@ -43,5 +43,10 @@
         <button class="button" type="submit">Guardar Cambios</button>
       </form>
     </section>
+
+    <a class="return" th:href="@{/home}">
+      <button class="button">Volver</button>
+    </a>
+    
   </body>
 </html>
