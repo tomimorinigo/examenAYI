@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="login">
+      <h1>Inicio Sesion</h1>
+
+      <form th:action="@{/login}" th:method="post" th:object="${Usuario}">
+        <label for="nombre">Nombre de Usuario:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          th:field="*{nombre}"
+          required
+          autofocus />
+
+        <label for="passwordUsuario">Contraseña:</label>
+        <input
+          type="password"
+          id="passwordUsuario"
+          name="passwordUsusario"
+          th:field="*{passwordUsuario}"
+          required />
+
+        <button class="button" type="submit">Iniciar sesión</button>
+      </form>
+    </section>
+  </body>
+</html>

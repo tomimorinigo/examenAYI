@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>Listado de Proveedores</title>
+  </head>
+  <body>
+    <section class="home">
+      <h2>Listado de Proveedores</h2>
+
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Correo Electrónico</th>
+            <th>Sitio Web</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="proveedor : ${proveedor}">
+            <td th:text="${proveedor.idProveedor}"></td>
+            <td th:text="${proveedor.nombre}"></td>
+            <td th:text="${proveedor.telefono}"></td>
+            <td th:text="${proveedor.direccion}"></td>
+            <td th:text="${proveedor.email}"></td>
+            <td th:text="${proveedor.sitioWeb}"></td>
+            <td>
+              <span class="activo" th:if="${proveedor.estado == 1}"
+                >Activo</span
+              >
+              <span class="inactivo" th:if="${proveedor.estado == 2}"
+                >Inactivo</span
+              >
+              <span class="baja" th:if="${proveedor.estado == 3}"
+                >Dado de baja</span
+              >
+            </td>
+            <td>
+              <a
+                class="edit"
+                th:href="@{/editar/proveedor/{id}(id=${proveedor.idProveedor})}"
+                ><i class="fa-solid fa-pencil edit"></i
+              ></a>
+              <a
+                class="delete"
+                th:href="@{/eliminar/proveedor/{id}(id=${proveedor.idProveedor})}"
+                ><i class="fa-solid fa-trash delete"></i
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <a th:href="@{/insertar}"><button class="button">Insertar</button></a>
+      </div>
+    </section>
+  </body>
+</html>

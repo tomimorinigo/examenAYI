@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
+    <title>Editar Proveedor</title>
+  </head>
+  <body>
+    <section class="login">
+      <h2>Editar Proveedor</h2>
+      <form
+        class="formulario"
+        th:object="${proveedor}"
+        th:action="@{/guardarCambios}"
+        method="post">
+        <label>Código:</label>
+        <input type="text" th:field="*{idProveedor}" readonly="readonly" />
+
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}" />
+
+        <label>Teléfono:</label>
+        <input type="text" th:field="*{telefono}" />
+
+        <label>Dirección:</label>
+        <input type="text" th:field="*{direccion}" />
+
+        <label>Correo Electrónico:</label>
+        <input type="text" th:field="*{email}" />
+
+        <label>Sitio Web:</label>
+        <input type="text" th:field="*{sitioWeb}" />
+
+        <label>Estado:</label>
+        <select th:field="*{estado}">
+          <option value="1">Activo</option>
+          <option value="2">Inactivo</option>
+          <option value="3">Dado de baja</option>
+        </select>
+
+        <button class="button" type="submit">Guardar Cambios</button>
+      </form>
+    </section>
+  </body>
+</html>

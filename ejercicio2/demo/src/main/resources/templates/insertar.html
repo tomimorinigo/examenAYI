@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insertar Proveedor</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
+  </head>
+  <body>
+    <section class="login">
+      <h2>Insertar Proveedor</h2>
+      <form
+        class="formulario"
+        action="/insertar"
+        method="post"
+        th:object="${proveedor}">
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          th:field="*{nombre}"
+          required />
+
+        <label for="telefono">Teléfono:</label>
+        <input
+          type="text"
+          id="telefono"
+          name="telefono"
+          th:field="*{telefono}"
+          required />
+
+        <label for="direccion">Dirección:</label>
+        <input
+          type="text"
+          id="direccion"
+          name="direccion"
+          th:field="*{direccion}"
+          required />
+
+        <label for="email">Correo Electrónico:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          th:field="*{email}"
+          required />
+
+        <label for="sitioWeb">Sitio Web:</label>
+        <input
+          type="text"
+          id="sitioWeb"
+          name="sitioWeb"
+          th:field="*{sitioWeb}"
+          required />
+
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" th:field="*{estado}" required>
+          <option value="1">Activo</option>
+          <option value="2">Inactivo</option>
+          <option value="3">Dado de baja</option> </select
+        ><br />
+
+        <button class="button" type="submit">Guardar</button>
+      </form>
+    </section>
+
+    <a class="return" th:href="@{/home}"
+      ><button class="button">Volver</button></a
+    >
+  </body>
+</html>
