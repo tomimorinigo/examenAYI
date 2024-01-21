@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesion</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
 </head>
 <body>
-    <div class="login">
-        <h1>Login</h1>
-        <form action="login" method="post" th:action="@{/login}" th:objects="${usuario}">
-            <input type="text" name="nombre" placeholder="Nombre" th:field="*{usuario.nombre}" required />
-            <input type="password" name="password" placeholder="Contraseña" th:field="*{usuario.contrasenia}" required />
-            <input type="submit" name="ingresar" value="Ingresar"></input>
+    <section class="login">
+        <h1>Inicio Sesion</h1>
+        <form method="post" th:action="@{/login}" th:object="${usuario}">
+            <label>Nombre de Usuario:</label>
+            <input type="text" name="nombre" th:field="*{nombre}" required />
+            <label>Contraseña:</label>
+            <input type="password" name="password" th:field="*{contrasenia}" required />
+            <button class="button" type="submit">Iniciar sesión</button>
         </form>
-    </div>
+    </section>
 </body>
 </html>

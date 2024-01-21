@@ -4,59 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
 </head>
 <body>
-    <h1 th:text="${title}"></h1>
-    <!-- Si el producto enviado desde el controlador es null, porq se llamo al servicio, no se muestra -->
-    <div th:if="${producto != null}">
-        <form action="newProduct" th:action="@{/save/producto}" th:object="${producto}" method="post">
+    <section class="login newItem">
+        <h1 th:text="${title}"></h1>
+        <!-- Si el producto enviado desde el controlador es null, porq se llamo al servicio, no se muestra -->
+        <div th:if="${producto != null}">
+            <form class="formulario" action="newProduct" th:action="@{/save/producto}" th:object="${producto}" method="post">
+                
+                <label for="codigoInterno">Codigo Interno Producto:</label>
+                <input type="text" th:field="*{codigoInternoProducto}" required/>
+                
+                <label for="codigoEan">Codigo EAN:</label>
+                <input type="text" th:field="*{codigoEan}" required/>
+                
+                <label for="nombre">Nombre:</label>
+                <input type="text" th:field="*{nombre}" required/>
+                
+                <label for="descripcion">Descripcion:</label>
+                <input type="text" th:field="*{descripcion}" required/>
+                
+                <label for="precio">Precio:</label>
+                <input type="text" th:field="*{precio}" required/>
 
-            <label for="codigoInterno">Codigo Interno Producto:</label>
-            <input type="text" th:field="*{codigoInternoProducto}" required/> <br>
-
-            <label for="codigoEan">Codigo EAN:</label>
-            <input type="text" th:field="*{codigoEan}" required/> <br>
-
-            <label for="nombre">Nombre:</label>
-            <input type="text" th:field="*{nombre}" required/> <br>
-
-            <label for="descripcion">Descripcion:</label>
-            <input type="text" th:field="*{descripcion}" required/> <br>
-
-            <label for="precio">Precio:</label>
-            <input type="text" th:field="*{precio}" required/><br>
-
-            <label for="stock">Stock:</label>
-            <input type="text" th:field="*{stock}" required/><br>
-
-            <input type="submit" value="Guardar" />
-        </form>
-    </div>
-    <!-- Si el servicio enviado desde el controlador es null, porq se llamo al producto, no se muestra -->
-    <div th:if="${servicio != null}">
-        <form action="newService" th:action="@{/save/servicio}" th:object="${servicio}" method="post">
-
-            <label for="codigoInterno">Codigo Interno Servicio:</label>
-            <input type="text" th:field="*{codigoInternoServicio}" required/> <br>
-
-            <label for="codigoEan">Codigo EAN:</label>
-            <input type="text" th:field="*{codigoEanServicio}" required/> <br>
-
-            <label for="nombre">Nombre:</label>
-            <input type="text" th:field="*{nombre}" required/> <br>
-
-            <label for="descripcion">Descripcion:</label>
-            <input type="text" th:field="*{descripcion}" required/> <br>
-
-            <label for="precio">Precio:</label>
-            <input type="text" th:field="*{precio}" required/> <br>
-
-            <label for="duracion">Duracion:</label>
-            <input type="text" th:field="*{duracion}" required/> <br>
-
-            <input type="submit" value="Guardar" /> <br>
-        </form>
-    </div>
-    <a th:href="${'/home'}">Volver</a>
+                <label for="stock">Stock:</label>
+                <input type="text" th:field="*{stock}" required/>
+                
+                <button type="submit" class="button">Guardar</button>
+            </form>
+        </div>
+        <!-- Si el servicio enviado desde el controlador es null, porq se llamo al producto, no se muestra -->
+        <div th:if="${servicio != null}">
+            <form class="formulario" action="newService" th:action="@{/save/servicio}" th:object="${servicio}" method="post">
+                
+                <label for="codigoInterno">Codigo Interno Servicio:</label>
+                <input type="text" th:field="*{codigoInternoServicio}" required/>
+                
+                <label for="codigoEan">Codigo EAN:</label>
+                <input type="text" th:field="*{codigoEan}" required/>
+                
+                <label for="nombre">Nombre:</label>
+                <input type="text" th:field="*{nombre}" required/>
+                
+                <label for="descripcion">Descripcion:</label>
+                <input type="text" th:field="*{descripcion}" required/>
+                
+                <label for="precio">Precio:</label>
+                <input type="text" th:field="*{precio}" required/>
+                
+                <label for="duracion">Duracion:</label>
+                <input type="text" th:field="*{duracion}" required/>
+                
+                <button type="submit" class="button">Guardar</button>
+            </form>
+        </div>
+    </section>
+    <a class="return" th:href="${'/home'}">
+        <button class="button">Volver</button>
+    </a>
 </body>
 </html>

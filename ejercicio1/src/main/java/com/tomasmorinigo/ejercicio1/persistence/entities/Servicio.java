@@ -10,9 +10,9 @@ import lombok.Data;
 @Entity
 @Table(name = "servicios")
 public class Servicio {
-    @Id @Column(name = "codigo_interno_servicio")
+    @Id @Column(name = "id_servicio")
     private Integer codigoInternoServicio;
-    private Integer codigoEanServicio;
+    private Integer codigoEan;
     private String nombre;
     private String descripcion;
     private Integer precio;

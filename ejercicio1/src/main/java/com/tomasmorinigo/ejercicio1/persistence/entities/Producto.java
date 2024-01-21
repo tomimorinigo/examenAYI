@@ -10,8 +10,8 @@ import lombok.Data;
 @Entity
 @Table(name = "productos")
 public class Producto {
-    @Id @Column(name = "codigo_interno_producto")
-    private Integer codigoInternoProducto; 
+    @Id @Column(name = "id_producto")
+    private Integer codigoInternoProducto;
     private Integer codigoEan;
     private String nombre;
     private String descripcion;

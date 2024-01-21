@@ -4,64 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado Productos y Servicios</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div th:if="${productos != null and !productos.empty}">
-        <h1 th:text="${tituloProducto}"></h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Codigo Interno</th>
-                    <th>Codigo EAN</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="producto : ${productos}">
-                    <td th:text="${producto.codigoInternoProducto}"></td>
-                    <td th:text="${producto.codigoEan}"></td>
-                    <td th:text="${producto.nombre}"></td>
-                    <td th:text="${producto.descripcion}"></td>
-                    <td th:text="${producto.precio}"></td>
-                    <td th:text="${producto.stock}"></td>
-                    <td><a th:href="@{/eliminar/producto/} + ${producto.codigoInternoProducto}">Eliminar</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <a th:href="${'/newItem/producto'}">Insertar producto</a>
-    </div>
-
-    <div th:if="${servicios != null and !servicios.empty}">
-        <h1 th:text="${tituloServicio}"></h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Codigo Interno</th>
-                    <th>Codigo EAN</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Duracion</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="servicio : ${servicios}">
-                    <td th:text="${servicio.codigoInternoServicio}"></td>
-                    <td th:text="${servicio.codigoEanServicio}"></td>
-                    <td th:text="${servicio.nombre}"></td>
-                    <td th:text="${servicio.descripcion}"></td>
-                    <td th:text="${servicio.precio}"></td>
-                    <td th:text="${servicio.duracion}"></td>
-                    <td><a th:href="@{/eliminar/servicio/} + ${servicio.codigoInternoServicio}">Eliminar</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <a th:href="${'/newItem/servicio'}">Insertar producto</a>
-    </div>
+    <section>
+        <div class="div-table" th:if="${productos != null and !productos.empty}">
+            <h1 th:text="${tituloProducto}"></h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Codigo Interno</th>
+                        <th>Codigo EAN</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="producto : ${productos}">
+                        <td th:text="${producto.codigoInternoProducto}"></td>
+                        <td th:text="${producto.codigoEan}"></td>
+                        <td th:text="${producto.nombre}"></td>
+                        <td th:text="${producto.descripcion}"></td>
+                        <td th:text="${producto.precio}"></td>
+                        <td th:text="${producto.stock}"></td>
+                        <td><a th:href="@{/eliminar/producto/} + ${producto.codigoInternoProducto}">
+                            <i class="fa-solid fa-trash delete"></i>
+                        </a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="${'/newItem/producto'}">
+                <button class="button">Insertar producto</button>
+            </a>
+        </div>
+    
+        <div class="div-table" th:if="${servicios != null and !servicios.empty}">
+            <h1 th:text="${tituloServicio}"></h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Codigo Interno</th>
+                        <th>Codigo EAN</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Duracion</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="servicio : ${servicios}">
+                        <td th:text="${servicio.codigoInternoServicio}"></td>
+                        <td th:text="${servicio.codigoEan}"></td>
+                        <td th:text="${servicio.nombre}"></td>
+                        <td th:text="${servicio.descripcion}"></td>
+                        <td th:text="${servicio.precio}"></td>
+                        <td th:text="${servicio.duracion}"></td>
+                        <td><a th:href="@{/eliminar/servicio/} + ${servicio.codigoInternoServicio}">
+                            <i class="fa-solid fa-trash delete"></i>
+                        </a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="${'/newItem/servicio'}">
+                <button class="button">Insertar servicio</button>
+            </a>
+        </div>
+    </section>
 </body>
 </html>
